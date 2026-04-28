@@ -29,21 +29,30 @@ void draw() {
   ellipse(400, 200, 460, 180);
   fill(water);
   arc(400, 200, 460, 180, HALF_PI, PI+HALF_PI);
-  noStroke();
   fill(150, 150, 200);
+  noStroke();
   beginShape();
-  vertex(390+sin(timer/30-0.2),112);
-  vertex(390+4*sin(timer/30),200);
-  vertex(390+sin(timer/30-0.1),288);
-  vertex(410+sin(timer/30+0.6),288);
-  vertex(410+4*sin(timer/30+0.4),200);
-  vertex(410+sin(timer/30+0.5),112);
+  vertex(390+sin(timer/30-0.2), 112);
+  vertex(390+4*sin(timer/30), 200);
+  vertex(390+sin(timer/30-0.1), 288);
+  vertex(410+sin(timer/30+0.6), 288);
+  vertex(410+4*sin(timer/30+0.4), 200);
+  vertex(410+sin(timer/30+0.5), 112);
   endShape(CLOSE);
-  //hexagon();
+  stroke(4);
+  for (int i =0; i<4; i++) {
+    for (int j = i; j<4; j++) {
+      hexagon(i*100+100+j*50, 550-i*25);
+      hexagon(700-i*100-j*50, 550-i*25);
+    }
+  }
 }
 
-void hexagon(float p1x,float p1y, float p2x, float p2y,float p3x,float p3y, float p4x, float p4y,float p5x,float p5y, float p6x, float p6y,float pcx,float pcy){
-  quad(p1x,p1y,p2x,p2y,p3x,p3y,pcx,pcy);
-  quad(p3x,p3y,p4x,p4y,p5x,p5y,pcx,pcy);
-  quad(p5x,p5y,p6x,p6y,p1x,p1y,pcx,pcy);
+void hexagon(float px, float py) {
+  fill(pot);
+  translate(px, py);
+  quad(0, 0, -75, -50, 0, -100, 75, -50);
+  quad(0, 0, -75, -50, -75, 50, 0, 100);
+  quad(0, 0, 0, 100, 75, 50, 75, -50);
+  translate(-px, -py);
 }

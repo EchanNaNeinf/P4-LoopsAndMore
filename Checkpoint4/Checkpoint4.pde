@@ -33,14 +33,31 @@ for (int x = 410; x < 600; x = x+20) {
     if (n == 3) {
       fill(100, 100, 175);
       n = 0;
-    } else if (n == 2){
+    } else if (n == 2) {
       fill(125, 125, 150);
-    }else{
-      fill(150,150,150);
+    } else {
+      fill(150, 150, 150);
     }
     circle(x, y, 20);
     circle(x, y, 15);
     circle(x, y, 10);
     circle(x, y, 5);
+  }
+}
+int t = 0;
+fill(0);
+for (int x = 410; x < 600; x = x+15) {
+  for (int y = 210; y < 400; y = y+10) {
+    t++;
+    if (t >= 1){
+      t = -1;
+    } else {
+      n++;
+      circle(x,y,25);
+      circle(x, y, 20);
+      circle(x, y, 15);
+      circle(x, y, 10);
+      circle(x, y, 5);
+    }
   }
 }
